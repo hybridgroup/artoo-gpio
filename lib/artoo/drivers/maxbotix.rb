@@ -35,7 +35,7 @@ module Artoo
 
       # Publishes events according to the ultrasonic rangefinder value
       def update(value)
-        last_reading = value
+        @last_reading = value
         publish(event_topic_name("update"), "range", range)
         publish(event_topic_name("range"), range)
       end
