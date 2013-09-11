@@ -16,7 +16,9 @@ gem install artoo-gpio
 
 ## Using
 
-Normally, this gem is automatically included as part of using an Artoo adaptor that can connect to your hardware. For example, artoo-arduino and artoo-raspi both make use of the drivers in this gem. 
+Normally, this gem is automatically included as part of using an Artoo adaptor that can connect to your hardware. For example, artoo-arduino and artoo-digispark both make use of the drivers in this gem. 
+
+Here is the "led" driver being used in an Arduino:
 
 ```ruby
 require 'artoo'
@@ -31,9 +33,24 @@ work do
 end
 ```
 
+Here is the same "led" driver being used by a Digispark.
+
+```ruby
+require 'artoo'
+
+connection :digispark, :adaptor => :littlewire, :vendor => 0x1781, :product => 0x0c9f
+device :led, :driver => :led, :pin => 1
+
+work do
+  every 1.second do
+    led.toggle
+  end
+end
+```
+
 ## Devices supported
 
-The following GPIO hardware devices have driver support:
+The following GPIO hardware devices have Artoo driver support:
 - Button
 - LED
 - Maxbotix ultrasonic range finder
