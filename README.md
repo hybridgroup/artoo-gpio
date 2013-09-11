@@ -16,7 +16,7 @@ gem install artoo-gpio
 
 ## Using
 
-Normally, this gem is automatically included as part of using an Artoo adaptor that can connect to your hardware. For example, artoo-arduino, and artoo-raspi, both make use of the drivers in this gem. 
+Normally, this gem is automatically included as part of using an Artoo adaptor that can connect to your hardware. For example, artoo-arduino and artoo-raspi both make use of the drivers in this gem. 
 
 ```ruby
 require 'artoo'

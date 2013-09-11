@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Artoo standard drivers for GPIO devices}
   s.description = %q{Artoo standard drivers for GPIO devices such as digital IO, analog IO, PWM IO, and servos}
   s.license     = 'Apache 2.0'
-  
+
   s.rubyforge_project = "artoo-gpio"
 
   s.files         = `git ls-files`.split("\n")
@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency 'artoo', '~> 1.1.0'
-  # TODO: add your development dependencies here
   s.add_development_dependency 'minitest', '~> 5.0'
   s.add_development_dependency 'minitest-happy'
   s.add_development_dependency 'mocha', '~> 0.14.0'
