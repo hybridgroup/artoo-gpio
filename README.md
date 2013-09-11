@@ -40,6 +40,7 @@ The following GPIO hardware devices have driver support:
 - Button
 - LED
 - Maxbotix ultrasonic range finder
+- Analog sensor
 - Motor (DC)
 - Servo
 
