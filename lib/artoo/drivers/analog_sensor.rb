@@ -4,7 +4,7 @@ module Artoo
   module Drivers
     # AnalogSensors driver behaviors
     class AnalogSensor < Driver
-      COMMANDS = [:analog_read, :lower, :upper, :previous_read, :analog_read_to_pwm_pos, :analog_read_to_pwm_neg].freeze
+      COMMANDS = [:analog_read, :lower, :upper, :previous_read].freeze
 
       attr_reader :lower, :upper, :previous_read
 
