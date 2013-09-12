@@ -13,11 +13,11 @@ module Artoo
       end
 
       def analog_read_to_pwm_pos(pin)
-        ((255.0 / 1023.0) * analog_read.to_f).round
+        ((255.0 / 1023.0) * analog_read(pin).to_f).round
       end
 
       def analog_read_to_pwm_neg(pin)
-        ((255.0 / 1023.0) * (1023 - analog_read.to_f)).round
+        ((255.0 / 1023.0) * (1023 - analog_read(pin).to_f)).round
       end
 
       def start_driver
