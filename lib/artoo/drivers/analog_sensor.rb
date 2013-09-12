@@ -12,14 +12,6 @@ module Artoo
         connection.analog_read(pin)
       end
 
-      def analog_read_to_pwm_pos(pin)
-        ((255.0 / 1023.0) * analog_read(pin).to_f).round
-      end
-
-      def analog_read_to_pwm_neg(pin)
-        ((255.0 / 1023.0) * (1023 - analog_read(pin).to_f)).round
-      end
-
       def start_driver
         @previous_read = 0
         @upper = additional_params[:upper].nil? ? 1023 : additional_params[:upper]
@@ -47,5 +39,15 @@ module Artoo
         end
       end
     end
+
+    class ::Fixnum
+      def to_pwm
+        ((255.0 / 1023.0) * self.to_f).round
+      end
+
+      def to_pwm_reverse
+        ((255.0 / 1023.0) * (1023 - self.to_f)).round
+      end
+    end
   end
-end 
+end
