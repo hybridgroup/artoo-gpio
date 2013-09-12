@@ -4,12 +4,20 @@ module Artoo
   module Drivers
     # AnalogSensors driver behaviors
     class AnalogSensor < Driver
-      COMMANDS = [:analog_read, :lower, :upper, :previous_read].freeze
+      COMMANDS = [:analog_read, :lower, :upper, :previous_read, :analog_read_to_pwm_pos, :analog_read_to_pwm_neg].freeze
 
       attr_reader :lower, :upper, :previous_read
 
       def analog_read(pin)
         connection.analog_read(pin)
+      end
+
+      def analog_read_to_pwm_pos
+        ((255.0 / 1023.0) * analog_read.to_f).round
+      end
+
+      def analog_read_to_pwm_neg
+        ((255.0 / 1023.0) * (1023 - analog_read.to_f)).round
       end
 
       def start_driver
