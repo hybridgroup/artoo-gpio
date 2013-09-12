@@ -39,5 +39,15 @@ module Artoo
         end
       end
     end
+
+    class ::Fixnum
+      def to_pwm
+        ((255.0 / 1023.0) * self.to_f).round
+      end
+
+      def to_pwm_reverse
+        ((255.0 / 1023.0) * (1023 - self.to_f)).round
+      end
+    end
   end
-end 
+end
