@@ -12,11 +12,11 @@ module Artoo
         connection.analog_read(pin)
       end
 
-      def analog_read_to_pwm_pos
+      def analog_read_to_pwm_pos(pin)
         ((255.0 / 1023.0) * analog_read.to_f).round
       end
 
-      def analog_read_to_pwm_neg
+      def analog_read_to_pwm_neg(pin)
         ((255.0 / 1023.0) * (1023 - analog_read.to_f)).round
       end
 
