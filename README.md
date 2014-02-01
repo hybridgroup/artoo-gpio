@@ -51,10 +51,11 @@ end
 ## Devices supported
 
 The following GPIO hardware devices have Artoo driver support:
+- Analog sensor
 - Button
+- Continuous Servo
 - LED
 - Maxbotix ultrasonic range finder
-- Analog sensor
 - Motor (DC)
 - Servo
 
