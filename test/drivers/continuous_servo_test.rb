@@ -25,10 +25,10 @@ describe Artoo::Drivers::ContinuousServo do
     end
   end
 
-  describe 'ContinuousServo#counterClockwise' do
+  describe 'ContinuousServo#counter_clockwise' do
     it 'turns the servo counter clockwise' do
       @connection.expects(:servo_write).with(3, 89)
-      @servo.counterClockwise
+      @servo.counter_clockwise
     end
   end
 end

@@ -4,7 +4,7 @@ module Artoo
   module Drivers
     # ContinuousServo behaviors for Firmata
     class ContinuousServo < Driver
-      COMMANDS = [:clockwise, :counterClockwise, :stop].freeze
+      COMMANDS = [:clockwise, :counter_clockwise, :stop].freeze
 
       # Create new ContinuousServo
       def initialize(params={})
@@ -22,7 +22,7 @@ module Artoo
       end
 
       # Turns the servo counter clockwise
-      def counterClockwise
+      def counter_clockwise
         connection.servo_write(pin, 89)
       end
     end
