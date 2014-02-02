@@ -9,7 +9,7 @@ module Artoo
       DOWN = 1
       UP = 0
 
-      attr_reader :data
+      attr_accessor :data
 
       def initialize(params={})
         super
