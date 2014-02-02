@@ -51,13 +51,8 @@ module Artoo
       
       #Averages data received
       def average_data
-        result = 0
-        unless @data.empty? 
-          @data.each do |n|
-            result = result + n 
-          end
-          result/@data.length
-        end
+        return 0 unless @data.any?
+        @data.inject(:+) / @data.size.to_f
       end
     end
   end
