@@ -22,4 +22,34 @@ describe Artoo::Drivers::MakeyButton do
       @makey.is_pressed?.must_equal false
     end
   end
+
+  describe 'MakeyButton#average_data' do
+    it 'returns 0 if no data' do
+      @makey.instance_variable_set(:@data, [])
+      @makey.send(:average_data).must_equal 0
+    end
+
+    it 'returns average if data present' do
+      @makey.instance_variable_set(:@data, [1,2,3])
+      @makey.send(:average_data).must_equal 2.0
+    end
+  end
+
+  describe 'MakeyButton#update' do
+    it 'publishes a push when pushed' do
+      @makey.stubs(:average_data).returns(0.6)
+      @makey.stubs(:is_pressed?).returns(false)
+      @device.expects(:event_topic_name).with('update')
+      @device.expects(:event_topic_name).with('push')
+      @makey.send(:update)
+    end
+
+    it 'publishes a release when released' do
+      @makey.stubs(:average_data).returns(0.4)
+      @makey.stubs(:is_pressed?).returns(true)
+      @device.expects(:event_topic_name).with('update')
+      @device.expects(:event_topic_name).with('release')
+      @makey.send(:update)
+    end
+  end
 end
