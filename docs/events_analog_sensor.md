@@ -8,8 +8,8 @@ Starts the driver.
 
 ## :upper
 
-Gets triggered if the value read by the sensor is greater or equal to :upper (value passed when setting up the sensor).
+Gets triggered if the value read by the sensor is greater or equal to `:upper` (value passed when setting up the sensor).
 
 ## :lower
 
-Gets triggered if the value read by the sensor is less or equal to :lower (value passed when setting up the sensor).
+Gets triggered if the value read by the sensor is less or equal to `:lower` (value passed when setting up the sensor).
