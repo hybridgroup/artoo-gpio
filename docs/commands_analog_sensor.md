@@ -10,13 +10,13 @@ Returns integer
 
 Public: Returns the upper limit set up when creating the sensor.
 
-Returns integer
+** Returns integer **
 
 ## lower → integer_value
 
 Public: Returns the lower limit set up when creating the sensor.
 
-Returns integer
+** Returns integer **
 
 ## analog_read(pin_number) → integer_value (from 0 to 1027)
 
@@ -24,4 +24,4 @@ Public: Returns an integer value that represents the analog read from the sensor
 
 - **pin_number** -  params, the pin value
 
-Returns integer
+** Returns integer **
