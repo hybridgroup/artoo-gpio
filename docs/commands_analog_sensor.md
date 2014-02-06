@@ -2,7 +2,7 @@
 
 ## pin 
 
-Public: Returns the pin number set up when creating the sensor.
+Returns the pin number set up when creating the sensor.
 
 ##### Params
 
@@ -14,7 +14,7 @@ Public: Returns the pin number set up when creating the sensor.
 
 ## upper 
 
-Public: Returns the upper limit set up when creating the sensor.
+Returns the upper limit set up when creating the sensor.
 
 ##### Params
 
@@ -26,7 +26,7 @@ Public: Returns the upper limit set up when creating the sensor.
 
 ## lower 
 
-Public: Returns the lower limit set up when creating the sensor.
+Returns the lower limit set up when creating the sensor.
 
 ##### Params
 
@@ -36,9 +36,9 @@ Public: Returns the lower limit set up when creating the sensor.
 
 `integer_value`
 
-## analog_read(pin_number) → integer_value (from 0 to 1027)
+## analog_read(pin_number) 
 
-Public: Returns an integer value that represents the analog read from the sensor, the value goes from `0` to `1027`.
+Returns an integer value that represents the analog read from the sensor, the value goes from `0` to `1027`.
 
 ##### Params
 
@@ -46,4 +46,4 @@ Public: Returns an integer value that represents the analog read from the sensor
 
 ##### Returns
 
-`integer_value`
+`integer_value (from 0 to 1027)`
