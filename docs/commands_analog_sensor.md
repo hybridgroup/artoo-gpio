@@ -10,7 +10,7 @@ Returns the pin number set up when creating the sensor.
 
 ##### Returns
 
-`integer_value`
+`integer`
 
 ## upper 
 
@@ -22,7 +22,7 @@ Returns the upper limit set up when creating the sensor.
 
 ##### Returns
 
-`integer_value`
+`integer`
 
 ## lower 
 
@@ -34,7 +34,7 @@ Returns the lower limit set up when creating the sensor.
 
 ##### Returns
 
-`integer_value`
+`integer`
 
 ## analog_read(pin_number) 
 
@@ -46,4 +46,4 @@ Returns an integer value that represents the analog read from the sensor, the va
 
 ##### Returns
 
-`integer_value (from 0 to 1027)`
+`integer (from 0 to 1027)`
