@@ -1,7 +1,13 @@
 # Commands
 
-## is_pressed? → true | false
+## is_pressed? 
 
-Public: Returns true or false matching state of the button.
+Returns true or false matching state of the button.
 
-** Returns true or false **
+##### Params
+
+`no params`
+
+##### Returns
+
+`true or false`
