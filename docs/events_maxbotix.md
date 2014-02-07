@@ -1,6 +1,6 @@
 # Events
 
-The events will be triggered when the amount of time specified by the param `:interval`, when setting up the driver, passes.
+#### The events will be triggered when the amount of time specified by the param `:interval`, when setting up the driver, passes.
 
 ## start_driver
 
