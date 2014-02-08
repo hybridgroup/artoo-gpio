@@ -6,13 +6,14 @@ module Artoo
     class Servo < Driver
       COMMANDS = [:move, :min, :center, :max, :current_angle].freeze
 
-      attr_reader :current_angle
+      attr_reader :current_angle, :angle_range
 
       # Create new Servo with angle=0
       def initialize(params={})
         super
 
         @current_angle = 0
+        @angle_range = additional_params[:range].nil? ? {min: 30, max: 150} : additional_params[:range]
       end
 
       # Moves to specified angle
@@ -51,10 +52,10 @@ module Artoo
       # contains angle to safe values
       # @param [Integer] angle
       def safe_angle(angle)
-        if angle < 30
-          30
-        elsif angle > 150
-          150
+        if angle < @angle_range[:min]
+          @angle_range[:min]
+        elsif angle > @angle_range[:max]
+          @angle_range[:max]
         else
           angle
         end
