@@ -8,25 +8,26 @@ module Artoo
 
       attr_reader :current_angle
 
-      # Create new Servo with angle=30
+      # Create new Servo with angle=0
       def initialize(params={})
         super
 
-        @current_angle = 30
+        @current_angle = 0
       end
 
       # Moves to specified angle
-      # @param [Integer] angle must be between 30-150
+      # @param [Integer] angle must be between 0-180
       def move(angle)
-        raise "Servo angle must be an integer between 30-150" unless (angle.is_a?(Numeric) && angle >= 30 && angle <= 150)
+        raise "Servo angle must be an integer between 0-180" unless (angle.is_a?(Numeric) && angle >= 0 && angle <= 180)
 
         @current_angle = angle
-        connection.servo_write(pin, angle_to_span(angle))
+        safety_angle = safe_angle(angle)
+        connection.servo_write(pin, angle_to_span(safety_angle))
       end
 
       # Moves to min position
       def min
-        move(30)
+        move(0)
       end
 
       # Moves to center position
@@ -36,13 +37,27 @@ module Artoo
 
       # Moves to max position
       def max
-        move(150)
+        move(180)
       end
 
       # converts an angle to a span between 0-255
       # @param [Integer] angle
       def angle_to_span(angle)
         (angle * 255 / 180).to_i
+      end
+
+      private
+      
+      # contains angle to safe values
+      # @param [Integer] angle
+      def safe_angle(angle)
+        if angle < 30
+          30
+        elsif angle > 150
+          150
+        else
+          angle
+        end
       end
     end
   end
