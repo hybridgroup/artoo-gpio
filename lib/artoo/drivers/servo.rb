@@ -13,7 +13,7 @@ module Artoo
         super
 
         @current_angle = 0
-        @angle_range = additional_params[:range].nil? ? {min: 30, max: 150} : additional_params[:range]
+        @angle_range = params[:range].nil? ? {min: 30, max: 150} : params[:range]
       end
 
       # Moves to specified angle
@@ -21,8 +21,8 @@ module Artoo
       def move(angle)
         raise "Servo angle must be an integer between 0-180" unless (angle.is_a?(Numeric) && angle >= 0 && angle <= 180)
 
-        @current_angle = angle
         safety_angle = safe_angle(angle)
+        @current_angle = safety_angle
         connection.servo_write(pin, angle_to_span(safety_angle))
       end
 

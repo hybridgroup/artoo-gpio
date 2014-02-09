@@ -28,7 +28,7 @@ describe Artoo::Drivers::Servo do
 
   it 'Servo#min' do
     @servo.min
-    @servo.current_angle.must_equal 0
+    @servo.current_angle.must_equal 30
   end
 
   it 'Servo#center' do
@@ -38,6 +38,12 @@ describe Artoo::Drivers::Servo do
 
   it 'Servo#max' do
     @servo.max
-    @servo.current_angle.must_equal 180
+    @servo.current_angle.must_equal 150
+  end
+
+  it 'Servo#safe_angle' do
+    @servo.send(:safe_angle, 0).must_equal 30
+    @servo.send(:safe_angle, 90).must_equal 90
+    @servo.send(:safe_angle, 180).must_equal 150
   end
 end
