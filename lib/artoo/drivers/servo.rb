@@ -13,7 +13,7 @@ module Artoo
         super
 
         @current_angle = 0
-        @angle_range = params[:range].nil? ? {min: 30, max: 150} : params[:range]
+        @angle_range = params[:range].nil? ? Range.new(30,150) : Range.new(params[:range][:min],params[:range][:max])
       end
 
       # Moves to specified angle
@@ -52,10 +52,10 @@ module Artoo
       # contains angle to safe values
       # @param [Integer] angle
       def safe_angle(angle)
-        if angle < @angle_range[:min]
-          @angle_range[:min]
-        elsif angle > @angle_range[:max]
-          @angle_range[:max]
+        if angle < @angle_range.min
+          @angle_range.min
+        elsif angle > @angle_range.max
+          @angle_range.max
         else
           angle
         end
