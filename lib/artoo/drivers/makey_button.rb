@@ -25,12 +25,13 @@ module Artoo
       def start_driver
         @pressed_val = 0
 
-        every(100) do
+        every(0.1) do
           new_value = connection.digital_read(pin)
-          puts new_value
-          @data << new_value
-          @data.shift
-          update(new_value) if !new_value.nil? && new_value != is_pressed?
+          unless new_value.nil?
+            @data << new_value
+            @data.shift if @data.size > 5
+            update(new_value)
+          end
         end
 
         super
@@ -38,7 +39,7 @@ module Artoo
 
       private
       # Publishes events according to the button feedback
-      def update
+      def update(new_val)
         if average_data <= 0.5 and not is_pressed?
           @pressed_val = 1
           publish(event_topic_name("update"), "push", new_val)
