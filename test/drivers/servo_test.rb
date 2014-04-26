@@ -46,4 +46,19 @@ describe Artoo::Drivers::Servo do
     @servo.send(:safe_angle, 90).must_equal 90
     @servo.send(:safe_angle, 180).must_equal 150
   end
+
+  describe "custom range" do
+    before do
+      @servo = Artoo::Drivers::Servo.new(
+        :parent => @device,
+        :additional_params => {
+          :range => {:min => 10, :max => 170}})
+    end
+
+    it 'Servo#safe_angle' do
+      @servo.send(:safe_angle,0).must_equal 10
+      @servo.send(:safe_angle,90).must_equal 90
+      @servo.send(:safe_angle,180).must_equal 170
+    end
+  end
 end
