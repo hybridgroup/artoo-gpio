@@ -13,7 +13,9 @@ module Artoo
         super
 
         @current_angle = 0
-        @angle_range = params[:range].nil? ? Range.new(30,150) : Range.new(params[:range][:min],params[:range][:max])
+        additional_params = params.fetch(:additional_params, {})
+        min_max = additional_params.fetch(:range, {:min => 30, :max => 150})
+        @angle_range = Range.new(min_max[:min],min_max[:max])
       end
 
       # Moves to specified angle
