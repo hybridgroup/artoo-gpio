@@ -62,6 +62,7 @@ The following GPIO hardware devices have Artoo driver support:
 
 ## Contributing
 
+* All active development is in the dev branch. New or updated features must be added to the dev branch. Hotfixes will be considered on the master branch in situations where it does not alter behaviour or features, only fixes a bug.
 * All patches must be provided under the Apache 2.0 License
 * Please use the -s option in git to "sign off" that the commit is your work and you are providing it under the Apache 2.0 License
 * Submit a Github Pull Request to the appropriate branch and ideally discuss the changes with us in IRC.
