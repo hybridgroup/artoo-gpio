@@ -135,7 +135,7 @@ module Artoo
       private
       def change_state(state)
         @current_state = state
-        @current_speed = state.zero? ? 0 : 255
+        @current_speed = state == :low ? 0 : 255
         if state == :high
           direction(@current_direction)
           speed(@current_speed) if speed_pin
